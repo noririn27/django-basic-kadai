@@ -24,6 +24,7 @@
     <td>{{ product.category }}</td>
     <td><img src="{{ product.img.url }}" style="width:80px height:auto;"></td>
     <td>
+      <button class="btn btn-primary" onclick="location.href='{% url 'detail' pk=product.pk %}'">詳細</button>
       <button class="btn btn-primary" onclick="location.href='{% url 'edit' pk=product.pk %}'">編集</button>
       <button class="btn btn-danger" onclick="location.href='{% url 'delete' pk=product.pk %}'">削除</button>
     </td>

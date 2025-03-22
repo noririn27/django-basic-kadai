@@ -28,6 +28,7 @@ urlpatterns = [
     path('crud/edit/<int:pk>', views.ProductUpdateView.as_view(), name="edit"),
     # <int:pk>の部分は商品のIDが入る。
     path('crud/delete/<int:pk>', views.ProductDeleteView.as_view(), name="delete"),
+    path('crud/detail/<int:pk>', views.ProductDetailView.as_view(), name="detail")
 ]
 
 if settings.DEBUG:

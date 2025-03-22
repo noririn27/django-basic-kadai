@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Product
 from django.urls import reverse_lazy
@@ -32,3 +32,8 @@ class ProductDeleteView(DeleteView): # 削除に特化したクラス
   model = Product
   success_url = reverse_lazy('list') # 削除時に遷移するURL、listから逆引きしてね。クラスの読み込み時点では、urls.pyが未だ完全に読み込まれていないため、reverse('list')だとエラーになる。lazyを付けることで遅延評価して、タイムラグによるエラーを防ぐ。
   # template_name = デフォルトでproduct_confirm_delete.html
+
+class ProductDetailView(DetailView):
+  model = Product
+  # template_name_suffix = '_detail'
+  # fields = '__all__'

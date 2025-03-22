@@ -13,6 +13,7 @@ class Product(models.Model): # 商品一覧のクラス
   price = models.PositiveIntegerField() # 値段（正の整数）
   category = models.ForeignKey(Category, on_delete=models.CASCADE) # カテゴリークラスとのリレーション（1:多の、多側にリレーション設定を書くのでProductに書いている）on_delete=はカテゴリーが削除されたときの処理で、models.CASCADEは属する商品も一緒に削除するという設定。
   img = models.ImageField(blank=True, default='noImage.png') # 画像を追加するとき、画像なしで追加可能（blank=True）、そのときはnoImage.pngが適用されるよ
+  detail = models.TextField(blank=True, null=True)
 
   def __str__(self): # 自分の名前を表示するときの設定
     return self.name # その名前を表示（djangoではデフォルトでこれがobject(〇)でreturnするようになっている）
